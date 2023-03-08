@@ -1,0 +1,79 @@
+name:                part2
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/part2#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2023 Author name here
+category:            Web
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+                     CHANGELOG.md
+
+executable part2
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  other-modules:       Paths_part2,
+                        Args.Status
+                        Codegen.Functions
+                        Codegen.Intern.Blocks
+                        Codegen.Intern.Cond
+                        Codegen.Intern.Convert
+                        Codegen.Intern.Functions
+                        Codegen.Intern.Operation
+                        Codegen.Intern.Parameters
+                        Codegen.Intern.Stack
+                        Codegen.Intern.Types
+                        Codegen.Types
+                        Compiler.Eval
+                        Launch
+                        Launch.Compiler
+                        Launch.Interpreter
+                        Lexer.Data
+                        Lexer.Lexer
+                        Lexer.Number
+                        Lexer.Satisfy
+                        Lexer.String
+                        Lexer.Types
+                        Lexer.Variable
+                        Parser.AST
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                       , llvm-hs
+                       , llvm-hs-pure
+                       , mtl >= 2.2.2
+                       , bytestring >= 0.10.10.0
+                       , random
+                       , transformers
+                       , process
+  ghc-options:         -Wall
+                       -Wcompat
+                       -Widentities
+                       -Wincomplete-record-updates
+                       -Wincomplete-uni-patterns
+                       -Wmissing-export-lists
+                       -Wmissing-home-modules
+                       -Wpartial-fields
+                       -Wredundant-constraints
+test-suite glados-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      tests,
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      HUnit
+      ,base >= 4.7 && < 5
+      , llvm-hs
+      , llvm-hs-pure
+      , mtl >= 2.2.2
+      , bytestring >= 0.10.10.0
+      , random
+      , transformers
+      , process
+  default-language: Haskell2010
